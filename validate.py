@@ -106,9 +106,9 @@ def validate_chartbeat_articles():
     for page in response['pages']:
         page_path = page['path']
         amp_path = page_path.replace('latimes.com', 'sandbox.tronc.arcpublishing.com/pb')
-        amp_path = amp_path.join('?outputType=amp')
-        print (amp_path)
-        validated_article = validate(amp_path)
+        output_amp_path = amp_path.append('?outputType=amp')
+        print (output_amp_path)
+        validated_article = validate(output_amp_path)
         validated_articles.append(validated_article)
 
     return total_articles(validated_articles)
